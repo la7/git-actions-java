@@ -27,7 +27,9 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: 'maven' # habilita cache de dependencias
+          #cache: 'maven' # habilita cache de dependencias
+          server-id: github # Esto le dice a la acción que genere el settings.xml
+          settings-path: ${{ github.workspace }} # Opcional: cambia donde se guarda si ~/.m2 falla
 
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
