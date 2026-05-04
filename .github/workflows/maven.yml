@@ -11,6 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+      - name: Create .m2 directory
+        run: mkdir -p ~/.m2
+
+      - name: Create settings.xml (Opcional si necesitas credenciales)
+        run: |
+          echo "<settings>...</settings>" > ~/.m2/settings.xml
+
       - name: Checkout repository
         uses: actions/checkout@v6
 
